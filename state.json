@@ -1,0 +1,28 @@
+{
+  "_doc": "Showcase canlı veri kaynağı. VPS maintenance v2 her run'da bunu üretir, Cowork rsync ile buraya yansır. Sensitive bilgi YOK — token/key/internal ID kaldırılmıştır.",
+  "_updated_at_doc": "İstemci tarafında human-readable zaman gösterimi için ts kullan",
+  "schema_version": "1.0",
+  "lestat_inc_version": "1.0",
+  "snapshot_at": "2026-04-27T17:30:00Z",
+  "vps": {
+    "uptime": "68 days",
+    "disk_used": "15%",
+    "load_1m": "0.00"
+  },
+  "stats": {
+    "active_bots": 5,
+    "total_ram_mb": 916,
+    "today_api_cost_usd": 0.42,
+    "automation_count": 23,
+    "openclaw_version": "2026.4.24",
+    "openclaw_latest": "2026.4.25",
+    "crashes_last_7d": 20
+  },
+  "bots": [
+    {"codename": "Hermes",     "role": "Chief Orchestrator",       "model": "Claude Sonnet 4",  "status": "live", "phase": 2, "ram_mb": 38},
+    {"codename": "Atlas",      "role": "Strategic Brain",          "model": "Claude Sonnet 4",  "status": "live", "ram_mb": 125},
+    {"codename": "Mnemosyne",  "role": "Personal Companion",       "model": "Gemini 2.5 Flash", "status": "live", "ram_mb": 660},
+    {"codename": "Hephaestus", "role": "Operations Floor",         "model": "Claude Sonnet 4",  "status": "live", "ram_mb": 68},
+    {"codename": "Apollo",     "role": "Music Producer",           "model": "Suno API",         "status": "live (sunset planned)", "ram_mb": 0}
+  ]
+}

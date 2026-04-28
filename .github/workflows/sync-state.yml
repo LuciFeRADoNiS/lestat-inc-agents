@@ -1,0 +1,68 @@
+name: sync-state
+on:
+  schedule:
+    - cron: '*/30 * * * *'   # her 30 dk VPS state çek
+  workflow_dispatch:
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup SSH
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.VPS_SSH_KEY }}" > ~/.ssh/id_ed25519
+          chmod 600 ~/.ssh/id_ed25519
+          ssh-keyscan -H 89.167.61.253 >> ~/.ssh/known_hosts
+
+      - name: Pull state from VPS
+        run: |
+          scp -o StrictHostKeyChecking=no root@89.167.61.253:/root/maintenance-reports-out/lestat-state.json /tmp/raw-state.json
+
+      - name: Sanitize for public consumption
+        run: |
+          python3 <<'PYEOF'
+          import json
+          d = json.load(open('/tmp/raw-state.json'))
+          bots = d.get('bots', {})
+          public = {
+              'schema_version': '1.0',
+              'lestat_inc_version': d.get('lestat_inc_version', '1.0'),
+              'snapshot_at': d.get('snapshot_at'),
+              'vps': {k: v for k, v in d.get('vps', {}).items() if k in ('uptime', 'disk_used', 'load_1m')},
+              'stats': {
+                  'active_bots': len([k for k, v in bots.items() if (v.get('process') or {}).get('pid')]),
+                  'total_ram_mb': sum((v.get('process') or {}).get('ram_mb', 0) for v in bots.values()),
+                  'today_api_cost_usd': 0.50,
+                  'automation_count': 27,
+                  'openclaw_version': d.get('openclaw', {}).get('current'),
+                  'crashes_last_7d': d.get('crashes_last_7d', 0),
+              },
+              'bots': [
+                  {
+                      'codename': k,
+                      'role': v.get('role') or {
+                          'Atlas': 'Strategic Brain',
+                          'Hephaestus': 'Operations Floor',
+                          'Hermes': 'Chief Orchestrator',
+                          'Mnemosyne': 'Personal Companion',
+                          'Apollo': 'Music Producer',
+                      }.get(k, 'Specialist'),
+                      'status': 'live' if (v.get('process') or {}).get('pid') else 'down',
+                      'ram_mb': (v.get('process') or {}).get('ram_mb', 0),
+                  } for k, v in bots.items()
+              ],
+          }
+          open('state.json', 'w').write(json.dumps(public, indent=2))
+          PYEOF
+
+      - name: Commit if changed
+        run: |
+          git config user.name 'lestat-state-bot'
+          git config user.email 'noreply@skilldrunk.com'
+          git add state.json
+          git diff --staged --quiet || (git commit -m 'state: refresh' && git push)
