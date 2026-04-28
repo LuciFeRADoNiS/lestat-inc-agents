@@ -86,8 +86,8 @@
   <!-- HERO -->
   <section class="hero">
     <p class="eyebrow">— LesTaT Inc. — sermayesi yalnız zekâ olan tek kişilik şirket —</p>
-    <h1>Bir mastermind,<br/>dört <span class="grad">mitolojik uzman</span>.</h1>
-    <p class="lead">Bir CTO, beş şirket, sınırsız sorumluluk. Cevap: kendi içinden tutan bir AI ekibi. Greek tanrılarının sorumluluk paylaşımıyla, modern bot mimarisinin disipliniyle.</p>
+    <h1>Bir mastermind,<br/>beş <span class="grad">mitolojik uzman</span>.</h1>
+    <p class="lead">Bir CTO, beş şirket, sınırsız sorumluluk. Cevap: kendi içinden tutan bir AI ekibi. Greek tanrılarının sorumluluk paylaşımıyla, modern bot mimarisinin disipliniyle. Doğal dil ile konuş, onay al, sonuç gör.</p>
     <div class="hero-meta">
       <span class="pill"><span class="pill-dot"></span>4 / 4 services healthy</span>
       <span class="pill">Hetzner CPX22 · Helsinki</span>
@@ -120,11 +120,12 @@
         </div>
         <div class="bot-name">Hermes</div>
         <div class="bot-role">Chief Orchestrator</div>
-        <p class="bot-desc">Habercinin tanrısı. Çok-adımlı işleri parçalar, doğru bota gönderir, sonuçları toparlayıp tek özet olarak getirir. Karar vermez, koordine eder.</p>
+        <p class="bot-desc">Habercinin tanrısı. Doğal dilde konuş — Hermes intent'ini anlar, onayını alır, doğru bota dağıtır. Çok-adımlı görevde tek mesajla 3 adapter'ı orkestre eder, fuzzy match ile typo'lara dayanıklı, tüm aksiyonları Obsidian'a iz bırakır.</p>
         <div class="bot-row"><span>Stack</span><b>Python · Claude Sonnet 4</b></div>
         <div class="bot-row"><span>RAM</span><b>~38 MB</b></div>
-        <div class="bot-row"><span>Adapter</span><b>Atlas + Hephaestus + Mnemosyne</b></div>
-        <div class="bot-quote">— şu üç işi koordine et: deadline kontrolü, GA4 raporu, board özeti. ben dağıtırım, gelişine bakarım.</div>
+        <div class="bot-row"><span>Adapter</span><b>Atlas + Hephaestus + Mnemosyne + Obsidian</b></div>
+        <div class="bot-row"><span>Phase</span><b>4 — NLP + Write + Cross-bot</b></div>
+        <div class="bot-quote">— "Daimler bitti, yarın 14:00 Toyota call takvime ekle." Anladım, 3 işlem yapacağım. [Evet] [Düzenle] [İptal] → ✅ Tamam.</div>
       </div>
 
       <div class="bot" style="--bot-acc:#5ad6ff;--bot-glow:rgba(90,214,255,.22)">
@@ -279,6 +280,25 @@
       <div class="ph"><div class="ph-num">ii</div><h4>Öğrenen sistem.</h4><p>Her bot kendi DB'sine kullanıcı etkileşimini işler. Mnemosyne `personal_profile.db`, Atlas `brain.db`, Hephaestus `group_brain.db`. Tek doğru kaynak: Obsidian vault.</p></div>
       <div class="ph"><div class="ph-num">iii</div><h4>Senkron Obsidian.</h4><p>Ne kadar bot olursa olsun, kalıcı bilgi vault'a yazılır. Kayıt orada, hafıza kalıcı.</p></div>
       <div class="ph"><div class="ph-num">iv</div><h4>Maintenance disiplini.</h4><p>Pazartesi 10:30 + Perşembe 19:00 otomatik sağlık kontrolü. Skill versiyonu, plugin sağlığı, regression guard, dual rapor — Telegram + Obsidian.</p></div>
+    </div>
+  </section>
+
+  <div class="ornament">⁘</div>
+
+  <!-- PHASE 4 YETENEKLERİ -->
+  <section>
+    <h2>Phase 4 — orchestrator seviyesi.</h2>
+    <p class="lead">Phase 1'de adapter yoktu. Phase 2'de read-only. Phase 4'te tam yetkili. Doğal dil + onay + cross-bot + audit trail.</p>
+
+    <div class="grid-philosophy">
+      <div class="ph"><div class="ph-num">A</div><h4>Doğal dil intent.</h4><p>"Yarın 9'da Daimler maili at hatırlat, eActros progress'ini güncelle" → Claude Sonnet intent'leri JSON'a parse eder, onay alır, dispatch eder.</p></div>
+      <div class="ph"><div class="ph-num">B</div><h4>Onay/Düzenle/İptal.</h4><p>Her write öncesi inline button. Sonrası: kayıt ID + Obsidian outbox link. Hata ezildi mi kontrolü.</p></div>
+      <div class="ph"><div class="ph-num">C</div><h4>Fuzzy match.</h4><p>"Pahse 4 testi bitti yap" → typo'ya rağmen "Phase 4 test" todo'sunu bulup mark_done yapar (difflib SequenceMatcher).</p></div>
+      <div class="ph"><div class="ph-num">D</div><h4>Cross-bot awareness.</h4><p>Atlas brief'i Hephaestus son 24h'i görür. Hephaestus daily summary Atlas progress + overdue'yu bağlamla işler.</p></div>
+      <div class="ph"><div class="ph-num">E</div><h4>Calendar oku+yaz.</h4><p>MasteRMinD Google Primary'de okuma + yazma. Atlas + Hephaestus iki yönlü. CalendarBridge ile Outlook ENCO senkron.</p></div>
+      <div class="ph"><div class="ph-num">F</div><h4>Z Raporu.</h4><p>Günlük 23:00 + Cumartesi 22:00. Hermes 3 bot DB'sini cross-source okur, Türkçe narrative üretir, Telegram + Obsidian Reviews/'e düşer.</p></div>
+      <div class="ph"><div class="ph-num">G</div><h4>Audit trail.</h4><p>Her kayıtta created_by/source_kind/actor. Kim, hangi kanaldan, kim adına yazdı — geriye dönük izlenebilir.</p></div>
+      <div class="ph"><div class="ph-num">H</div><h4>Obsidian outbox.</h4><p>Bot DB write → vault'a queue → Cowork 15dk sync → Daily/Projects markdown'larına satır append.</p></div>
     </div>
   </section>
 
