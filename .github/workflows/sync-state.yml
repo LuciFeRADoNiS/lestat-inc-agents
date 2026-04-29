@@ -1,11 +1,15 @@
 name: sync-state
+# DISABLED 2026-04-29: v1 schema üretiyor; agents.skilldrunk.com showcase v2'ye geçti
+# (Calliope + ram_history + cost_7d_usd + ai_cost_history + crashes + automations_recent).
+# Bu workflow her 30dk'da v2 state.json'u v1'e overwrite ediyordu — devre dışı.
+# Yeniden enable etmek için: maintenance script v3 ship et (STATE-SCHEMA-V2.md kontratı),
+# Sanitize step'ini v2 üretecek şekilde güncelle, sonra schedule'ı geri aç.
 on:
-  schedule:
-    - cron: '*/30 * * * *'   # her 30 dk VPS state çek
-  workflow_dispatch:
+  workflow_dispatch:   # sadece manuel; cron kaldırıldı
 
 jobs:
   sync:
+    if: false   # job no-op; workflow_dispatch tetiklense bile çalışmaz
     runs-on: ubuntu-latest
     permissions:
       contents: write
