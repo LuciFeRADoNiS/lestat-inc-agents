@@ -1,49 +1,127 @@
 {
-  "schema_version": "1.0",
-  "lestat_inc_version": "1.0",
-  "snapshot_at": "2026-04-27T13:20:28Z",
+  "_doc": "Showcase canlı veri kaynağı v2. VPS maintenance v3 her run'da bunu üretir, Cowork rsync ile agents.skilldrunk.com/state.json'a yansır. Sensitive bilgi YOK. Schema kontrat: STATE-SCHEMA-V2.md",
+  "_updated_at_doc": "İstemci tarafında human-readable zaman gösterimi için snapshot_at kullan",
+  "schema_version": "2.0",
+  "lestat_inc_version": "2.0",
+  "snapshot_at": "2026-04-29T17:30:00Z",
   "vps": {
-    "disk_used": "15%",
-    "load_1m": "0.00"
+    "uptime": "70 days",
+    "disk_used": "16%",
+    "load_1m": "0.12"
   },
   "stats": {
-    "active_bots": 0,
-    "total_ram_mb": 0,
-    "today_api_cost_usd": 0.5,
+    "active_bots": 5,
+    "total_ram_mb": 916,
+    "today_api_cost_usd": 0.74,
     "automation_count": 27,
-    "openclaw_version": "2026.4.24",
-    "crashes_last_7d": 20
+    "openclaw_version": "2026.4.25",
+    "openclaw_latest": "2026.4.25",
+    "crashes_last_7d": 4
   },
   "bots": [
     {
-      "codename": "Atlas",
-      "role": "Strategic Brain",
-      "status": "down",
-      "ram_mb": 0
-    },
-    {
-      "codename": "Hephaestus",
-      "role": "Operations Floor",
-      "status": "down",
-      "ram_mb": 0
-    },
-    {
       "codename": "Hermes",
       "role": "Chief Orchestrator",
-      "status": "down",
-      "ram_mb": 0
+      "model": "Claude Sonnet 4",
+      "status": "live",
+      "phase": 4,
+      "ram_mb": 38,
+      "ram_history": [42, 39, 41, 38, 40, 38, 38],
+      "cost_7d_usd": 1.42
+    },
+    {
+      "codename": "Atlas",
+      "role": "Strategic Brain",
+      "model": "Claude Sonnet 4",
+      "status": "live",
+      "ram_mb": 125,
+      "ram_history": [120, 118, 124, 130, 128, 125, 125],
+      "cost_7d_usd": 2.10
     },
     {
       "codename": "Mnemosyne",
       "role": "Personal Companion",
-      "status": "down",
-      "ram_mb": 0
+      "model": "Gemini 2.5 Flash",
+      "status": "live",
+      "ram_mb": 660,
+      "ram_history": [640, 655, 670, 665, 660, 658, 660],
+      "cost_7d_usd": 0.84
+    },
+    {
+      "codename": "Hephaestus",
+      "role": "Operations Floor",
+      "model": "Claude Sonnet 4",
+      "status": "live",
+      "ram_mb": 68,
+      "ram_history": [62, 65, 70, 68, 66, 68, 68],
+      "cost_7d_usd": 12.40
     },
     {
       "codename": "Apollo",
       "role": "Music Producer",
-      "status": "down",
-      "ram_mb": 0
+      "model": "Suno API",
+      "status": "live (sunset planned)",
+      "ram_mb": 0,
+      "ram_history": [0, 0, 0, 0, 0, 0, 0],
+      "cost_7d_usd": 0.15
+    },
+    {
+      "codename": "Calliope",
+      "role": "Skilldrunk Brand Voice",
+      "model": "Claude Haiku 4.5",
+      "status": "live",
+      "ram_mb": 0,
+      "ram_history": [0, 0, 0, 0, 0, 0, 0],
+      "cost_7d_usd": 0.42
     }
+  ],
+  "ai_cost_history": [
+    { "date": "2026-03-31", "usd": 1.12 },
+    { "date": "2026-04-01", "usd": 1.34 },
+    { "date": "2026-04-02", "usd": 0.98 },
+    { "date": "2026-04-03", "usd": 1.05 },
+    { "date": "2026-04-04", "usd": 0.62 },
+    { "date": "2026-04-05", "usd": 0.48 },
+    { "date": "2026-04-06", "usd": 1.20 },
+    { "date": "2026-04-07", "usd": 1.55 },
+    { "date": "2026-04-08", "usd": 1.18 },
+    { "date": "2026-04-09", "usd": 0.92 },
+    { "date": "2026-04-10", "usd": 1.07 },
+    { "date": "2026-04-11", "usd": 0.74 },
+    { "date": "2026-04-12", "usd": 0.55 },
+    { "date": "2026-04-13", "usd": 1.38 },
+    { "date": "2026-04-14", "usd": 1.62 },
+    { "date": "2026-04-15", "usd": 1.10 },
+    { "date": "2026-04-16", "usd": 0.88 },
+    { "date": "2026-04-17", "usd": 1.04 },
+    { "date": "2026-04-18", "usd": 0.70 },
+    { "date": "2026-04-19", "usd": 0.52 },
+    { "date": "2026-04-20", "usd": 1.45 },
+    { "date": "2026-04-21", "usd": 1.78 },
+    { "date": "2026-04-22", "usd": 1.22 },
+    { "date": "2026-04-23", "usd": 0.95 },
+    { "date": "2026-04-24", "usd": 1.08 },
+    { "date": "2026-04-25", "usd": 0.68 },
+    { "date": "2026-04-26", "usd": 0.45 },
+    { "date": "2026-04-27", "usd": 1.32 },
+    { "date": "2026-04-28", "usd": 0.86 },
+    { "date": "2026-04-29", "usd": 0.74 }
+  ],
+  "crashes": [
+    { "ts": "2026-04-23T11:45:00Z", "codename": "Atlas",      "kind": "restart" },
+    { "ts": "2026-04-25T08:12:00Z", "codename": "Mnemosyne",  "kind": "restart" },
+    { "ts": "2026-04-26T14:22:00Z", "codename": "Mnemosyne",  "kind": "crash" },
+    { "ts": "2026-04-26T14:22:30Z", "codename": "Mnemosyne",  "kind": "restart" },
+    { "ts": "2026-04-28T03:14:00Z", "codename": "Atlas",      "kind": "restart" }
+  ],
+  "automations_recent": [
+    { "ts": "2026-04-29T08:00:00Z", "type": "cron",       "summary": "Atlas daily brief produced + Telegram push" },
+    { "ts": "2026-04-29T09:15:00Z", "type": "intent",     "summary": "Hermes dispatched 'add Toyota call to calendar' to MasteRMinD" },
+    { "ts": "2026-04-29T10:30:00Z", "type": "maintenance","summary": "Health check passed — 4/4 services healthy" },
+    { "ts": "2026-04-29T12:00:00Z", "type": "summary",    "summary": "Hephaestus group digest posted (2 todos, 1 decision)" },
+    { "ts": "2026-04-29T13:42:00Z", "type": "skilldrunk", "summary": "Calliope answered /ask 'son 7g pageview' via query_db" },
+    { "ts": "2026-04-29T15:00:00Z", "type": "diary",      "summary": "Mnemosyne evening prompt sent (mood=neutral)" },
+    { "ts": "2026-04-29T16:18:00Z", "type": "intent",     "summary": "Hermes processed 'eActros progress update' → 2 writes" },
+    { "ts": "2026-04-29T17:00:00Z", "type": "cron",       "summary": "OpenClaw skill version check OK" }
   ]
 }
